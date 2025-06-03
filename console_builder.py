@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 from collections import namedtuple
 from copy import deepcopy
 from functools import wraps
-from typing import Optional, Any, Dict, List, Type, Union
+from typing import Any, Dict, List, Type
 from argparse import ArgumentParser, ArgumentTypeError, Action, Namespace, _HelpAction, _SubParsersAction, SUPPRESS
 
 
