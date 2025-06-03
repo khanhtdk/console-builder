@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 if __name__ == '__main__':
@@ -10,7 +10,7 @@ if __name__ == '__main__':
         description='Conveniently implementing a console program.',
         python_requires='>=3.10',
         include_package_data=True,
-        packages=find_packages(),
+        packages=['console_builder'],
         zip_safe=False,
         classifiers=[
             'Development Status :: 4 - Beta',
