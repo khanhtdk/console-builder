@@ -10,7 +10,7 @@ if __name__ == '__main__':
         description='Conveniently implementing a console program.',
         python_requires='>=3.10',
         include_package_data=True,
-        packages=['console_builder'],
+        py_modules=['console_builder'],
         zip_safe=False,
         classifiers=[
             'Development Status :: 4 - Beta',
