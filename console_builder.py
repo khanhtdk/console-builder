@@ -184,7 +184,7 @@ class ConsoleBuilder(ABC):
                 settings['prog'] = cls.program
             if 'usage' not in settings:
                 settings['usage'] = cls.usage_info
-            if 'description' in settings:
+            if 'description' not in settings:
                 settings['description'] = cls.description
             parser = ArgumentParser(**settings)
 
