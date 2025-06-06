@@ -70,7 +70,7 @@ class ConsoleBuilder(ABC):
 
     def __init__(self, *args, **kwargs):
         """
-        :param args:     An array of arguments.
+        :param args:     An array of console arguments.
         :param kwargs:   Keyword arguments for post-init stage.
         """
         # Build parser
@@ -80,10 +80,8 @@ class ConsoleBuilder(ABC):
         # Parse arguments
         self.args: Namespace = self.parser.parse_args(args or None)
 
-        if kwargs.pop('test_mode', False) is True:
-            print(self.args)
-        else:
-            self.__post_init__(**kwargs)
+        # Run post init
+        self.__post_init__(**kwargs)
 
     def __post_init__(self, **kwargs):
         """Post-init tasks"""
