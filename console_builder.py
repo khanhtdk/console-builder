@@ -104,9 +104,15 @@ class ConsoleBuilder(ABC):
             return os.path.exists(f'/proc/{pid}')
         return False
 
+    def before_start(self):
+        """Run before main procedure is executed."""
+
+    def before_exit(self):
+        """Run before the process is exited."""
+
     @abstractmethod
     def main(self):
-        """Main execution method"""
+        """Main execution method."""
 
     @_daemonize
     def run(self):
@@ -115,6 +121,7 @@ class ConsoleBuilder(ABC):
             return self.DEFAULT_RETVAL_FOR_HANDLED_ERRORS
         try:
             self._write_pid()
+            self.before_start()
             self.main()
             return 0
         except Exception as e:
@@ -125,6 +132,7 @@ class ConsoleBuilder(ABC):
                     return exit_code or self.DEFAULT_RETVAL_FOR_HANDLED_ERRORS
             raise
         finally:
+            self.before_exit()
             self._remove_pid()
 
     @staticmethod
